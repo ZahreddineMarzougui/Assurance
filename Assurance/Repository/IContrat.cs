@@ -20,5 +20,7 @@ namespace Assurance.Repository
 
         /// delete Contrat
         ResponseModel DeleteContrat(int IdContrat);
+
+
     }
 }

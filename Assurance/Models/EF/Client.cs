@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assurance.Models.EF
 {
-    public class Client
+    public class Client : IdentityUser<Guid>
     {
         [Key, Required]
         public int IdClient { get; set; }

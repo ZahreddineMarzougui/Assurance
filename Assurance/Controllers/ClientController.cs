@@ -68,7 +68,7 @@ namespace Assurance.Controllers
         [HttpPost]
         [Route("[action]")]
         public IActionResult SaveClient([StringLength(30, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
-                                        [Required(ErrorMessage = "The First Name field is required")] string FirstName,
+                                    [Required(ErrorMessage = "The First Name field is required")] string FirstName,
                                     [Required(ErrorMessage = "The Last Name field is required")]
                                     [StringLength(30, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)] string LastName,
                                     [Required(ErrorMessage = "The CIN field is required")] long CIN,

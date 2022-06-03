@@ -32,7 +32,7 @@ END
 GO
 
 
-CREATE PROCEDURE [dbo].[SPR_GetContratByClient] -- EXEC SPR_GetContratByClient 3
+CREATE PROCEDURE [dbo].[GetContratByClient] -- EXEC GetContratByClient 3
 (
 	@IdClient INT
 )
@@ -53,7 +53,7 @@ END
 
 
 GO
-CREATE PROCEDURE [dbo].[SPR_GetListGarantieByContrat] --  EXEC SPR_GetListGarantieByContrat 5
+CREATE PROCEDURE [dbo].[GetListGarantieByContrat] --  EXEC GetListGarantieByContrat 5
 (
 	@IdContrat INT
 )

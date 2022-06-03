@@ -12,7 +12,10 @@ namespace Assurance.Models
     public partial class AssuranceContext : DbContext
     {
         public AssuranceContext(DbContextOptions options) : base(options) { }
-       
+        //public AssuranceContext(string ConnectionString) : base(new DbContextOptionsBuilder().UseSqlServer(ConnectionString).Options)
+        //{
+
+        //}
 
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Contrat> Contrat { get; set; }
@@ -25,6 +28,7 @@ namespace Assurance.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.seed();
+            modelBuilder.Entity<NbrContratParClient>().HasNoKey();
         }
     }
 }

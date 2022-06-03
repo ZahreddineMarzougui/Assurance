@@ -10,7 +10,7 @@ namespace Assurance.Models.Extend
     public class NbrContratParClient
     {
         public string Date { get; set; }
-        public int nbrContrat { get; set; }
+        public int NombreContrat { get; set; }
 
     }
 }
