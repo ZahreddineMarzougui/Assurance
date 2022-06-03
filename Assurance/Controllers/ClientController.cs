@@ -142,5 +142,26 @@ namespace Assurance.Controllers
                 throw;
             }
         }
+
+
+        [HttpGet]
+        [Route("[action]")]
+        public List<ListContratByClient> GetContratByClient([Required] int IdClient)
+        {
+            List<ListContratByClient> ListContrat;
+            try
+            {
+                ListContrat = _context.GetContratByClient(IdClient).ToList();
+                return ListContrat;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        
+
     }
 }

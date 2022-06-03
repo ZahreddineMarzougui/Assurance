@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assurance.Models.EF
 {
-    public class Client : IdentityUser<Guid>
+    public class Client
     {
         [Key, Required]
         public int IdClient { get; set; }

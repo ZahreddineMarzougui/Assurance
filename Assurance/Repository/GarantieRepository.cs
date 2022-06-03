@@ -1,6 +1,9 @@
 ﻿using Assurance.Models;
 using Assurance.Models.EF;
+using Assurance.Models.Extend;
 using Assurance.ViewModels;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -112,6 +115,19 @@ namespace Assurance.Repository
                 model.Message = "Error : " + ex.Message;
             }
             return model;
+        }
+
+
+
+        public List<ListGarantieByContrat> GetListGarantieByContrat(int IdContrat)
+        {
+            var ContratId = new SqlParameter("@IdContrat", IdContrat);
+
+            List<ListGarantieByContrat> ListGarantie = _context
+                                .ListGarantieByContrat
+                                    .FromSqlRaw("Exec GetListGarantieByContrat @IdContrat", ContratId).ToList();
+
+            return ListGarantie;
         }
     }
 }

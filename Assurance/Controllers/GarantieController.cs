@@ -1,4 +1,5 @@
 ﻿using Assurance.Models.EF;
+using Assurance.Models.Extend;
 using Assurance.Repository;
 using Assurance.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -112,5 +113,23 @@ namespace Assurance.Controllers
                 return Ok(model);
             }
         }
+
+
+        [HttpGet]
+        [Route("[action]")]
+        public List<ListGarantieByContrat> GetListGarantieByContrat([Required] int IdContrat)
+        {
+            List<ListGarantieByContrat> ListGarantie;
+            try
+            {
+                ListGarantie = _context.GetListGarantieByContrat(IdContrat).ToList();
+                return ListGarantie;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

@@ -125,5 +125,17 @@ namespace Assurance.Repository
 
             return lstClient;
         }
+
+        public List<ListContratByClient> GetContratByClient(int IdClient)
+        {
+            var ClientId = new SqlParameter("@IdClient", IdClient);
+
+            List<ListContratByClient> ListContrat = _context
+                                .ListContratByClient
+                                    .FromSqlRaw("Exec GetContratByClient @IdClient", ClientId).ToList();
+
+            return ListContrat;
+        }
+        
     }
 }

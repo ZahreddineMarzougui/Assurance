@@ -1,4 +1,5 @@
 ﻿using Assurance.Models.EF;
+using Assurance.Models.Extend;
 using Assurance.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -21,5 +22,8 @@ namespace Assurance.Repository
         /// delete Garantie
         ResponseModel DeleteGarantie(int IdGarantie);
         TypeGarantie GetGarantieTypeById(int IdType);
+        List<ListGarantieByContrat> GetListGarantieByContrat(int IdContrat);
+
+        
     }
 }

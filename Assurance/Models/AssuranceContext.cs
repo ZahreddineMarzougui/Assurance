@@ -24,11 +24,16 @@ namespace Assurance.Models
         public virtual DbSet<TypeGarantie> TypeGarantie { get; set; }
         
         public virtual DbSet<NbrContratParClient> NbrContratParClient { get; set; }
+        public virtual DbSet<ListContratByClient> ListContratByClient { get; set; }
+        public virtual DbSet<ListGarantieByContrat> ListGarantieByContrat { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.seed();
             modelBuilder.Entity<NbrContratParClient>().HasNoKey();
+            modelBuilder.Entity<ListContratByClient>().HasNoKey();
+            modelBuilder.Entity<ListGarantieByContrat>().HasNoKey();
+            
         }
     }
 }

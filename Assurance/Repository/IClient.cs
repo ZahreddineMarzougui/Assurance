@@ -24,5 +24,7 @@ namespace Assurance.Repository
         ResponseModel DeleteClient(int IdClient);
 
         List<NbrContratParClient> GetNbrContratParClient(int IdClient);
+        List<ListContratByClient> GetContratByClient(int IdClient);
+        
     }
 }
