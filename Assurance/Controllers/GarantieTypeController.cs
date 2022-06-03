@@ -15,6 +15,7 @@ namespace Assurance.Controllers
     
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class GarantieTypeController : ControllerBase
     {
         private readonly IGarantieType _context;

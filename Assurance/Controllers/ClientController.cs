@@ -17,6 +17,7 @@ namespace Assurance.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ClientController : ControllerBase
     {
         private IClient _context;

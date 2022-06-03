@@ -15,6 +15,7 @@ namespace Assurance.Controllers
     
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class BrancheController : ControllerBase
     {
         private IBranche _context;

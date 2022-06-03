@@ -13,7 +13,7 @@ namespace Assurance.AuthManager
     {
         private readonly IDictionary<string, string> users = new Dictionary<string, string>
         {
-            {"user1","password1" },{"user2","password2"}
+            {"admin","password" }
         };
         private readonly string key;
         public JWTAuthenticationManager(string key)
@@ -41,7 +41,6 @@ namespace Assurance.AuthManager
                 Expires = DateTime.Now.AddHours(3),
                 SigningCredentials = credentials
             };
-            // var token = new JwtSecurityToken(null, null, claims,notBefore:null, expires: DateTime.Now.AddHours(3), signingCredentials: credentials);
             var token = tokenhandler.CreateToken(tokenDescriptor);
             return tokenhandler.WriteToken(token);
         }

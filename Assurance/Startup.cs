@@ -32,7 +32,7 @@ namespace Assurance
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-            {
+        {
             services.AddDbContext<AssuranceContext>(x => x.UseSqlServer(Configuration.GetConnectionString("ConStr")));
             services.AddDbContext<Assurance.Models.AssuranceContext>();
             services.AddControllers();
@@ -70,12 +70,27 @@ namespace Assurance
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = @"JWT Authorization header using the Bearer scheme. 
-                      Enter 'Bearer' [space] and then your token in the text input below.
-                      Example: 'Bearer ahjaffbebfyuaeyfbf'",
+                      Enter Token in the text input below.",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey,
-                    Scheme = "Bearer"
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT"
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type=ReferenceType.SecurityScheme,
+                                Id="Bearer"
+
+                            }
+                        },
+                        new string[]{}
+                    }
                 });
             });
         }
@@ -87,7 +102,7 @@ namespace Assurance
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Assurance.PL v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Assurance v1"));
             }
 
             app.UseHttpsRedirection();

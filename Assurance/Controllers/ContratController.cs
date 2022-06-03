@@ -15,6 +15,7 @@ namespace Assurance.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ContratController : ControllerBase
     {
         private readonly IContrat _context;
